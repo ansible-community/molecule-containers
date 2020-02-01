@@ -1,0 +1,28 @@
+---
+# zuul.d/layout.yaml
+
+- project:
+    check:
+      jobs: &defaults
+        # tier 1
+        - molecule-tox-linters
+        - molecule-tox-packaging
+        - molecule-tox-py36-centos-8:
+            vars:
+              tox_environment:
+                PYTEST_REQPASS: 1
+        - molecule-tox-py36-ubuntu-bionic:
+            vars:
+              tox_environment:
+                PYTEST_REQPASS: 1
+        - molecule-tox-py37-fedora-30:
+            voting: false
+            vars:
+              tox_environment:
+                PYTEST_REQPASS: 1
+        - molecule-tox-devel-centos-8:
+            vars:
+              tox_environment:
+                PYTEST_REQPASS: 1
+    gate:
+      jobs: *defaults
