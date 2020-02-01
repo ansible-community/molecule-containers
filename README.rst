@@ -29,6 +29,8 @@ Molecule Containers is designed to be a drop-in replacement for the existing
 Docker and Podman drivers, one that can transparently pick whichever backend
 if found.
 
+In the future we may enable other backends like k8s/openshift.
+
 Please note that this driver is currently in its early stage of development,
 do not even try to install or use it until this message is removed.
 
