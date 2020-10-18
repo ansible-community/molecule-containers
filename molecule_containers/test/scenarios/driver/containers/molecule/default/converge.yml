@@ -3,5 +3,6 @@
   hosts: all
   gather_facts: false
   become: true
-  roles:
-    - molecule
+  tasks:
+    - debug:
+        msg: seems ok

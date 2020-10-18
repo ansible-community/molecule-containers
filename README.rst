@@ -25,12 +25,13 @@ Molecule Containers Plugin
    :target: LICENSE
    :alt: Repository License
 
-Molecule Containers is designed to be a drop-in replacement for the existing
-Docker and Podman drivers, one that can transparently pick whichever backend
-if found.
+Molecule Containers is designed to be a **drop-in replacement for the existing
+Docker and Podman drivers**, one that can transparently pick whichever backend
+is found.
 
-Please note that this driver is currently in its early stage of development,
-do not even try to install or use it until this message is removed.
+Please note that this driver is currently in its **early stage of
+development**, do not even try to use it in production. Just raise a PR if you
+have a bugfix for it.
 
 .. _get-involved:
 

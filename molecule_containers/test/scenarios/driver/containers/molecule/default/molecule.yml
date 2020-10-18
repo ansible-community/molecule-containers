@@ -5,5 +5,3 @@ platforms:
   - name: instance
 provisioner:
   name: ansible
-  env:
-    ANSIBLE_ROLES_PATH: ../../../../../resources/roles/

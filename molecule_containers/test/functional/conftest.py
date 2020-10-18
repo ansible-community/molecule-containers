@@ -20,4 +20,4 @@
 #  DEALINGS IN THE SOFTWARE.
 """PyTest Config."""
 
-from molecule.test.conftest import *  # noqa
+from molecule.test.conftest import *  # noqa pylint: disable=wildcard-import,unused-wildcard-import

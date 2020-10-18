@@ -1,16 +1,16 @@
 ---
 repos:
-  - repo: https://github.com/PyCQA/doc8.git
-    rev: 0.8.1rc1
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.6.4
     hooks:
-      - id: doc8
+      - id: isort
   - repo: https://github.com/python/black.git
-    rev: 19.10b0
+    rev: 20.8b1
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
-    rev: v2.4.0
+    rev: v3.2.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -21,31 +21,41 @@ repos:
       - id: debug-statements
         language_version: python3
   - repo: https://gitlab.com/pycqa/flake8.git
-    rev: 3.7.9
+    rev: 3.8.4
     hooks:
       - id: flake8
         additional_dependencies:
+          - pydocstyle>=5.1.1
           - flake8-absolute-import
           - flake8-black>=0.1.1
           - flake8-docstrings>=1.5.0
-          - flake8-mypy
         language_version: python3
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.20.0
+    rev: v1.25.0
     hooks:
       - id: yamllint
         files: \.(yaml|yml)$
         types: [file, yaml]
         entry: yamllint --strict
-  - repo: https://github.com/codespell-project/codespell.git
-    rev: v1.15.0
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.790
     hooks:
-      - id: codespell
-        name: codespell
-        description: Checks for common misspellings in text files.
-        entry: codespell
-        language: python
-        types: [text]
+      - id: mypy
+        # empty args needed in order to match mypy cli behavior
         args: []
-        require_serial: false
-        additional_dependencies: []
+        entry: mypy molecule_containers/
+        pass_filenames: false
+        additional_dependencies:
+          - molecule
+          - packaging
+  - repo: https://github.com/pre-commit/mirrors-pylint
+    rev: v2.6.0
+    hooks:
+      - id: pylint
+        additional_dependencies:
+          - ansible-base
+          - molecule
+  - repo: https://github.com/PyCQA/doc8.git
+    rev: 0.9.0a1
+    hooks:
+      - id: doc8
