@@ -19,12 +19,12 @@
 #  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
 """Functional Tests."""
-import pytest
 import os
-import sh
 
+import pytest
+import sh
 from molecule import logger
-from molecule.test.conftest import run_command, change_dir_to
+from molecule.test.conftest import change_dir_to, run_command
 from molecule.test.functional.conftest import metadata_lint_update
 
 # import change_dir_to, temp_dir
@@ -32,24 +32,23 @@ from molecule.test.functional.conftest import metadata_lint_update
 LOG = logger.get_logger(__name__)
 
 
-@pytest.mark.xfail(reason="need to fix template path")
 def test_command_init_scenario(temp_dir):
     """Verify that we can initialize a new scenario with this driver."""
     role_directory = os.path.join(temp_dir.strpath, "test-init")
-    options = {"role_name": "test-init"}
-    cmd = sh.molecule.bake("init", "role", **options)
-    run_command(cmd)
+    options = {}
+    cmd = sh.molecule.bake("init", "role", "test-init", **options)
+    result = run_command(cmd)
+    assert result.exit_code == 0
     metadata_lint_update(role_directory)
 
     with change_dir_to(role_directory):
         molecule_directory = pytest.helpers.molecule_directory()
         scenario_directory = os.path.join(molecule_directory, "test-scenario")
         options = {
-            "scenario_name": "test-scenario",
             "role_name": "test-init",
             "driver-name": "containers",
         }
-        cmd = sh.molecule.bake("init", "scenario", **options)
+        cmd = sh.molecule.bake("init", "scenario", "test-scenario", **options)
         run_command(cmd)
 
         assert os.path.isdir(scenario_directory)

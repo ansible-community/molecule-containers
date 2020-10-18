@@ -2,13 +2,12 @@
 
 from __future__ import absolute_import
 
-
 from molecule import logger
 
 try:
-    from molecule.driver.docker import Docker as DriverBackend
+    from molecule_docker.driver import Docker as DriverBackend
 except ImportError:
-    from molecule.driver.podman import Podman as DriverBackend
+    from molecule_podman.driver import Podman as DriverBackend
 
 log = logger.get_logger(__name__)
 
@@ -23,5 +22,5 @@ class Container(DriverBackend):
 
     def __init__(self, config=None):
         """Construct Container."""
-        super(DriverBackend, self).__init__(config)
+        super().__init__(config)
         self._name = "containers"
