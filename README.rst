@@ -6,20 +6,12 @@ Molecule Containers Plugin
    :target: https://pypi.org/project/molecule-containers
    :alt: PyPI Package
 
-.. image:: https://zuul-ci.org/gated.svg
-   :target: https://dashboard.zuul.ansible.com/t/ansible/builds?project=ansible-community/molecule-containers
+.. image:: https://github.com/ansible-community/molecule-containers/workflows/tox/badge.svg
+   :target: https://github.com/ansible-community/molecule-containers/actions
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/python/black
    :alt: Python Black Code Style
-
-.. image:: https://img.shields.io/badge/Code%20of%20Conduct-silver.svg
-   :target: https://docs.ansible.com/ansible/latest/community/code_of_conduct.html
-   :alt: Ansible Code of Conduct
-
-.. image:: https://img.shields.io/badge/Mailing%20lists-silver.svg
-   :target: https://docs.ansible.com/ansible/latest/community/communication.html#mailing-list-information
-   :alt: Ansible mailing lists
 
 .. image:: https://img.shields.io/badge/license-MIT-brightgreen.svg
    :target: LICENSE
