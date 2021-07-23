@@ -21,9 +21,12 @@ Molecule Containers is designed to be a **drop-in replacement for the existing
 Docker and Podman drivers**, one that can transparently pick whichever backend
 is found.
 
-Please note that this driver is currently in its **early stage of
-development**, do not even try to use it in production. Just raise a PR if you
-have a bugfix for it.
+The driver preference is defined by
+``MOLECULE_CONTAINERS_BACKEND=podman,docker`` and you can easily switch between
+the two by setting this variable.
+
+Keep in mind that if executable is not found, the driver will fallback to
+first option in the list and likely fail later.
 
 .. _get-involved:
 

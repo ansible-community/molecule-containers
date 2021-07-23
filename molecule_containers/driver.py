@@ -9,19 +9,13 @@ from molecule import logger
 
 _logger = logger.get_logger(__name__)
 
-# Temporary logic to determine which backend driver should be loaded.
-# podman is used as fallback default.
-driver = os.environ.get("MOLECULE_CONTAINERS_BACKEND", "")
-if not driver:
-    if "DOCKER_HOST" in os.environ:
-        driver = "docker"
-    elif "CONTAINER_HOST" in os.environ:
-        driver = "podman"
-    else:
-        if shutil.which("docker"):
-            driver = "docker"
-        else:
-            driver = "podman"
+# Preference logic for picking backend driver to be used.
+drivers = os.environ.get("MOLECULE_CONTAINERS_BACKEND", "podman,docker").split(",")
+for driver in drivers:
+    if shutil.which(driver):
+        break
+else:
+    driver = drivers[0]
 
 # Logic for picking backend is subject to change.
 if driver == "docker":
