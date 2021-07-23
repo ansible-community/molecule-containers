@@ -4,5 +4,6 @@
   gather_facts: false
   become: true
   tasks:
-    - debug:
+    - name: Display bogus message
+      debug:
         msg: seems ok
