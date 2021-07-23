@@ -11,8 +11,5 @@ build-backend = "setuptools.build_meta"
 [tool.black]
 skip-string-normalization = false
 
-[tool.isort]
-profile = "black"
-
 [tool.setuptools_scm]
 local_scheme = "no-local-version"
