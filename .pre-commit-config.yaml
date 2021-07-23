@@ -4,6 +4,7 @@ repos:
     rev: 5.9.2
     hooks:
       - id: isort
+        language_version: python3.9
   - repo: https://github.com/python/black.git
     rev: 21.7b0
     hooks:
@@ -35,7 +36,6 @@ repos:
     hooks:
       - id: ansible-lint
         always_run: true
-        verbose: true
         additional_dependencies:
           - ansible-core
           - yamllint

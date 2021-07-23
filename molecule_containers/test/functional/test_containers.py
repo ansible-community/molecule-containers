@@ -22,10 +22,11 @@
 import os
 
 import pytest
-from molecule import logger
 from molecule.test.conftest import change_dir_to
 from molecule.test.functional.conftest import metadata_lint_update
 from molecule.util import run_command
+
+from molecule import logger
 
 # import change_dir_to, temp_dir
 
