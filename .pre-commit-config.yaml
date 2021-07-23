@@ -35,7 +35,6 @@ repos:
     hooks:
       - id: ansible-lint
         always_run: true
-        verbose: true
         additional_dependencies:
           - ansible-core
           - yamllint
