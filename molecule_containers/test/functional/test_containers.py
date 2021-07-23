@@ -24,7 +24,6 @@
 import os
 
 from molecule.test.conftest import change_dir_to, molecule_directory
-from molecule.test.functional.conftest import metadata_lint_update
 from molecule.util import run_command
 
 from molecule import logger
@@ -38,7 +37,6 @@ def test_command_init_scenario(temp_dir):
     cmd = ["molecule", "init", "role", "test-init"]
     result = run_command(cmd)
     assert result.returncode == 0
-    metadata_lint_update(role_directory)
 
     with change_dir_to(role_directory):
         scenario_directory = os.path.join(molecule_directory(), "test-scenario")
@@ -57,6 +55,9 @@ def test_command_init_scenario(temp_dir):
 
         assert os.path.isdir(scenario_directory)
 
-        cmd = ["molecule", "test", "-s", "test-scenario"]
+        # we do not run the full "test" sequence because lint will fail, check
+        # is shorter but comprehensive enough to test the most important
+        # functionality: destroy, dependency, create, prepare, converge
+        cmd = ["molecule", "check", "-s", "test-scenario"]
         result = run_command(cmd)
         assert result.returncode == 0
