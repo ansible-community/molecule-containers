@@ -19,6 +19,8 @@
 #  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
 """Functional Tests."""
+# https://github.com/PyCQA/isort/issues/1790
+# isort:skip_file
 import os
 
 from molecule.test.conftest import change_dir_to, molecule_directory
