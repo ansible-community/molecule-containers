@@ -23,12 +23,12 @@ import os
 
 import pytest
 from molecule.test.conftest import change_dir_to
+from molecule.test.conftest import change_dir_to, molecule_directory
 from molecule.test.functional.conftest import metadata_lint_update
 from molecule.util import run_command
 
 from molecule import logger
 
-# import change_dir_to, temp_dir
 
 LOG = logger.get_logger(__name__)
 
@@ -42,8 +42,7 @@ def test_command_init_scenario(temp_dir):
     metadata_lint_update(role_directory)
 
     with change_dir_to(role_directory):
-        molecule_directory = pytest.helpers.molecule_directory()
-        scenario_directory = os.path.join(molecule_directory, "test-scenario")
+        scenario_directory = os.path.join(molecule_directory(), "test-scenario")
         cmd = [
             "molecule",
             "init",
