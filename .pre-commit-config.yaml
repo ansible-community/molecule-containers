@@ -4,8 +4,8 @@ repos:
     rev: 5.9.3
     hooks:
       - id: isort
-  - repo: https://github.com/python/black.git
-    rev: 21.9b0
+  - repo: https://github.com/psf/black
+    rev: 21.10b0
     hooks:
       - id: black
         language_version: python3
@@ -20,8 +20,8 @@ repos:
       - id: check-merge-conflict
       - id: debug-statements
         language_version: python3
-  - repo: https://gitlab.com/pycqa/flake8.git
-    rev: 3.9.2
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
     hooks:
       - id: flake8
         additional_dependencies:
@@ -31,7 +31,7 @@ repos:
           - flake8-docstrings>=1.5.0
         language_version: python3
   - repo: https://github.com/ansible-community/ansible-lint.git
-    rev: v5.2.0
+    rev: v5.2.1
     hooks:
       - id: ansible-lint
         always_run: true
