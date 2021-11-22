@@ -1,11 +1,11 @@
 ---
 repos:
   - repo: https://github.com/PyCQA/isort
-    rev: 5.9.3
+    rev: 5.10.1
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 21.10b0
+    rev: 21.11b1
     hooks:
       - id: black
         language_version: python3
@@ -59,6 +59,6 @@ repos:
           - ansible-core
           - molecule
   - repo: https://github.com/PyCQA/doc8.git
-    rev: 0.9.1
+    rev: 0.10.1
     hooks:
       - id: doc8
