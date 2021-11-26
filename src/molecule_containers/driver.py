@@ -4,6 +4,7 @@ from __future__ import absolute_import
 import inspect
 import os
 import shutil
+from typing import Dict
 
 from molecule import logger
 
@@ -42,3 +43,12 @@ class Container(DriverBackend):
         # Assure that _path points to the driver we would be using, or
         # molecule will fail to find the embedded playbooks.
         self._path = os.path.abspath(os.path.dirname(inspect.getfile(DriverBackend)))
+
+    @property
+    def required_collections(self) -> Dict[str, str]:
+        """Return collections dict containing names and versions required."""
+        return {
+            "ansible.posix": "1.3.0",
+            "community.docker": "1.9.1",
+            "containers.podman": "1.8.1",
+        }
