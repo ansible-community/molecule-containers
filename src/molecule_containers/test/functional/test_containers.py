@@ -30,20 +30,13 @@ LOG = logger.get_logger(__name__)
 
 def test_command_init_scenario(temp_dir):
     """Verify that we can initialize a new scenario with this driver."""
-    role_directory = os.path.join(temp_dir.strpath, "test-init")
-    cmd = ["molecule", "init", "role", "test-init"]
-    result = run_command(cmd)
-    assert result.returncode == 0
-
-    with change_dir_to(role_directory):
-        scenario_directory = os.path.join(molecule_directory(), "test-scenario")
+    with change_dir_to(temp_dir):
+        scenario_directory = os.path.join(molecule_directory(), "default")
         cmd = [
             "molecule",
             "init",
             "scenario",
-            "test-scenario",
-            "--role-name",
-            "test-init",
+            "default",
             "--driver-name",
             "containers",
         ]
@@ -55,6 +48,6 @@ def test_command_init_scenario(temp_dir):
         # we do not run the full "test" sequence because lint will fail, check
         # is shorter but comprehensive enough to test the most important
         # functionality: destroy, dependency, create, prepare, converge
-        cmd = ["molecule", "check", "-s", "test-scenario"]
+        cmd = ["molecule", "check", "-s", "default"]
         result = run_command(cmd)
         assert result.returncode == 0
