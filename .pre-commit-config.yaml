@@ -51,13 +51,15 @@ repos:
           - molecule-docker
           - molecule-podman
           - packaging
-  - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v3.0.0a4
+  - repo: https://github.com/pycqa/pylint
+    rev: v2.12.1
     hooks:
       - id: pylint
         additional_dependencies:
           - ansible-core
           - molecule
+          - molecule-docker
+          - molecule-podman
   - repo: https://github.com/PyCQA/doc8.git
     rev: 0.10.1
     hooks:

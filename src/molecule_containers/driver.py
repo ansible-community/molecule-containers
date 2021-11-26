@@ -23,7 +23,7 @@ if driver == "docker":
 elif driver == "podman":
     from molecule_podman.driver import Podman as DriverBackend
 else:
-    raise NotImplementedError("Driver %s is not supported." % driver)
+    raise NotImplementedError(f"Driver {driver} is not supported.")
 _logger.debug("Containers driver will use %s backend", driver)
 
 
