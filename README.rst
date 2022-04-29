@@ -33,14 +33,14 @@ first option in the list and likely fail later.
 Get Involved
 ============
 
-* Join us in the ``#ansible-molecule`` channel on `Freenode`_.
+* Join us in the ``#ansible-devtools`` channel on `libera`_.
 * Join `discussions`_ forum.
 * Join the community working group by checking the `wiki`_.
 * Want to know about releases, subscribe to `ansible-announce list`_.
 * For the full list of Ansible email Lists, IRC channels see the
   `communication page`_.
 
-.. _`Freenode`: https://freenode.net
+.. _`libera`: https://web.libera.chat/
 .. _`discussions`: https://github.com/ansible-community/molecule/discussions
 .. _`ansible-announce list`: https://groups.google.com/group/ansible-announce
 .. _`communication page`: https://docs.ansible.com/ansible/latest/community/communication.html
