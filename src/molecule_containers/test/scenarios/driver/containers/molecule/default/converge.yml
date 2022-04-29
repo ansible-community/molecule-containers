@@ -5,5 +5,5 @@
   become: true
   tasks:
     - name: Display bogus message
-      debug:
+      ansible.builtin.debug:
         msg: seems ok
